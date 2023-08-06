@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="red"/>
+    
+    
+    <title>slider</title>
+    <style>
+        body{
+            margin:0;
+            background:black;
+            overflow:hidden;
+        }
+        #wrapper{
+            width:80%;
+            margin:0 auto;
+            #background:red;
+            text-align:center;
+            overflow:auto;
+            padding:2rem;
+        }
+        #container{
+            display:flex;
+            width:200%;
+            text-align:center;
+            margin:0 auto;
+           # background:green;
+            #overflow:auto;
+            transition:all 1s ease-in-out;
+           
+        }
+        .i{
+            margin:0 0.9rem;
+            display:inline-block;
+            width:40%;
+            height:30vh;
+        }
+        marquee{
+            font-size:8vw;
+        }
+        #l{
+            width:80%;
+            margin:0 auto;
+            color:white;
+        }
+        #text{
+            text-align:center;
+        }
+        #back{
+            padding:1rem;
+            border:none;
+            outline:2px solid red;
+            outline-offset:1rem;
+            margin:1rem;
+            background:maroon;
+            color:white;
+            box-shadow:0 0 10px maroon;
+        }
+        .nav{
+            color:white;
+            background:blue;
+            padding:1rem;
+            border-radius:0 0 2rem 2rem;
+            position:fixed;
+            width:100%;
+            
+        }
+        #tools{
+           display:flex;
+            flex-flow:row wrap;
+            justify-content:space-between;
+            align-items:center; 
+        }
+        #tools p{
+            font-weight:800;
+        }
+        #logo{
+            font-size:1.4rem;
+            font-weight:800;
+        }
+    </style>
+</head>
+<body onbeforeunload="return leave()">
+    
+    <div id="wrapper">
+        <div id="container">
+            <img src="image1.jpeg" class="i" alt="">
+            <img src="image2.jpeg" class="i" alt="">
+            <img src="image3.jpeg" class="i" alt="">
+        </div>
+    </div>
+    <div id="l">
+        <marquee>I finally did it 😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂</marquee>
+    </div>
+    <div id="l">
+        <p id="text">Sorry you cant scroll this page!!</p>
+        <button id="back">Go back!!</button>
+       <a href="slide.html"> <button id="back">Refresh!!</button></a>
+      
+    </div>
+   
+    <script>
+        var counter=0
+        function move(){
+            var doc =document.getElementById("container")
+            
+            
+            
+            if (counter>110){
+                counter=0
+                 
+            }
+             
+            doc.style.transform=`translateX(-${counter}%)`
+            
+            counter+=40
+        }
+        setInterval(move,2000)
+        
+        function back(){
+            history.back()
+        }
+        
+        function leave(){
+            return "Are you sure you want to leave"
+        }
+        document.getElementById('back').onclick=back;
+    </script>
+</body>
+</html>
